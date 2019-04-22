@@ -1,0 +1,16 @@
+[Level 1] - Normal users (non-officers) ====== ANY ROLE NAME
+  --> Can only view XP information about themselves and other users.
+[Level 2] - Medium users (officers) ====== "OFFICERS"
+  --> Can add XP to users (limit enforced), shout, and view XP information about themselves and other users.
+[Level 3] - Owner ====== "HICOM"
+  --> Can add XP to users (limit not enforced), shout, view XP information about themselves and other users, promote, demote, and rank lock users.
+
+
+
+
+
+
+
+Made by Nishant Srivastava
+https://www.github.com/nishi7409
+Feel free to open up an issue, I'll try to get in touch with you ASAP--if I don't, it's because of the massive course load at college.

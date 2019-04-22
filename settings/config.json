@@ -1,0 +1,17 @@
+{
+  "prefix": "!",
+  "bot_token": "discordapp.com/developers token",
+  "rblxUsername": "rblxUsername",
+  "rblxUsernamePassword": "rblxPassword",
+  "rblxCookie": "cookie",
+  "groupID": 123123,
+  "rankIDantiRANKLOCK": 100,
+  "firebaseBASEURL": "https://url.firebaseio.com",
+  "hicomRole": "HICOM",
+  "officerRole": "OFFICER",
+  "rolesetInformation":{
+      "rolesetIDNUMBER":[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+      "requiredXP":[0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60],
+      "_comment": "rolesetIDNUMBER 1 matches up with requiredXP 0 || rolesetIDNUMBER 2 matches up with requiredXP 5 || rolesetIDNUMBER 3 matches up with requiredXP 10 || and so on..."
+    }
+}

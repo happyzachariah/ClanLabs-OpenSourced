@@ -63,7 +63,7 @@ module.exports = {
 			}
 
 
-			
+
       var userNameHeader = `[${usernameE}](https://www.roblox.com/users/${userIDDD}/profile)`
       var currentRankAndPoints = `**${currentRank} - Currently has ${Number(body.b)} XP**`
       var percentAge = Math.round(((Number(body.b))/Number(requiredNumber)) * 100)

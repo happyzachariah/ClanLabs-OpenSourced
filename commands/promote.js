@@ -12,7 +12,7 @@ module.exports = {
     var groupIDB = await roblox.getGroup(groupID)
     var userID = await rbx.getIdFromUsername(`${args[1]}`)
 
-    
+
 
 
 

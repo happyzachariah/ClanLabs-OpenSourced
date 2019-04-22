@@ -5,7 +5,8 @@
 [Level 3] - Owner ====== "HICOM"
   --> Can add XP to users (limit not enforced), shout, view XP information about themselves and other users, promote, demote, and rank lock users.
 
-
+Settings --> config.json
+THIS IS WHERE YOU'LL DO MOST OF YOUR EDITS IF YOU'RE UNCOMFORTABLE DOING ANY CODE EDITS--OTHERWISE, GOOD LUCK
 
 
 

@@ -1,0 +1,22 @@
+{
+  "name": "clanlabs_opensourced",
+  "version": "1.0.0",
+  "description": "read the readme.md",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/nishi7409/clanlabs-opensourced"
+  },
+  "author": "Nishant Srivastava",
+  "license": "MIT",
+  "dependencies": {
+    "bloxy": "^2.9.9964",
+    "discord.js": "^11.4.2",
+    "firebase": "^5.10.0",
+    "noblox.js": "^4.2.6",
+    "snekfetch": "^4.0.4"
+  }
+}

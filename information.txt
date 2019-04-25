@@ -9,7 +9,10 @@ Settings --> config.json
 THIS IS WHERE YOU'LL DO MOST OF YOUR EDITS IF YOU'RE UNCOMFORTABLE DOING ANY CODE EDITS--OTHERWISE, GOOD LUCK
 
 
+stopped working on project - 4/25/19 because boredom.  maybe you'll see updates to this project in the future--no promises.  if you'd like to contribute, go ahead.
+open a pull request and do all that jazz and i'll take a look at it.  thxs for reading
 
+have a wonderful day ma'am/sir/attack helicopter!!
 
 
 Made by Nishant Srivastava

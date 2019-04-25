@@ -24,10 +24,6 @@ var config = {/*
 };
 firebase.initializeApp(config)
 
-var cleverbot = require("cleverbot.io"),
-bot = new cleverbot("no", "ya");
-bot.setNick("baAutomation");
-
 const sql = require("sqlite");
 sql.open("./database.sqlite");
 // idk why i used sqlite but stick with firebase or go to mongo lol
@@ -1196,20 +1192,7 @@ baAutomation.on('message', async message => {
   // VERIFICATION CHANNEL [END]
 
   // MISCELLANEOUS COMMANDS [START]
-  if (message.content.toLowerCase().startsWith(`<@502614584134467625>`)){
-    console.log('ok')
-    message.channel.startTyping()
-    bot.create(function (err, session) {
-      console.log('okok')
-      bot.ask(`${message.content}`, function (err, response) {
-        var embed = new Discord.RichEmbed()
-          .setDescription(`${response}`);
-        message.channel.send(embed)
-      });
-    });
-    message.channel.stopTyping()
-    return undefined;
-  }
+
   if (message.content.toLowerCase().startsWith(prefix + "commands")){
     if (message.guild.id !== `116394307014885379`) return;
     var helpMenuEmbed = new Discord.RichEmbed()

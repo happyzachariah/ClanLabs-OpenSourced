@@ -24,10 +24,6 @@ var config = {/*
 };
 firebase.initializeApp(config)
 
-var cleverbot = require("cleverbot.io"),
-bot = new cleverbot("no", "ya");
-bot.setNick("baAutomation");
-
 const sql = require("sqlite");
 sql.open("./database.sqlite");
 // idk why i used sqlite but stick with firebase or go to mongo lol

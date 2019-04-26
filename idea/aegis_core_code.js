@@ -748,7 +748,7 @@ aegisAutomation.on('message', async message => {
     var howManyNubs = 0;
     var embed = new Discord.RichEmbed()
       .setColor(0xff6b6b)
-      .setDescription(`**__MESSAGE FROM AEGIS HIGH COMMAND__**\n\nPlease unmute the shouts channel in the Aegis Core discord. This way, you'll be notified when there are events. React to the message in shouts when you've unmuted it.`)
+      .setDescription(`${message.content.slice(message.content.indexOf(message.content.split(" ")[2]))}`)
     for (a = 0; a < roleMembers.length; a++){
       await message.guild.members.get(roleMembers[a]).send(embed).catch(console.error)
       howManyNubs = howManyNubs + 1;

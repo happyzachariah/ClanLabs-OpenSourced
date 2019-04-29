@@ -31,7 +31,7 @@ aegisAutomation.on('guildMemberAdd', async (member) => {
   if (!body){
     return undefined;
   }else{
-    var rankID = await rbx.getRankInGroup(3243022, `${body.robloxUsername}`)
+    var rankID = await rbx.getRankInGroup(3243022, body.robloxId)
     if (rankID === 0){
       var embed = new Discord.RichEmbed()
         .setColor(0xf74e4e)
@@ -121,7 +121,7 @@ aegisAutomation.on('message', async message => {
       return message.channel.send(embed).then(message => message.delete(15000))
     }
     if (body.status === "ok"){
-      var rankID = await rbx.getRankInGroup(groupID, `${body.robloxUsername}`)
+      var rankID = await rbx.getRankInGroup(groupID, body.robloxId)
       if (rankID === 0){
         var embed = new Discord.RichEmbed()
           .setColor(0xf74e4e)

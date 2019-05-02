@@ -17,6 +17,7 @@ var firebase = require("firebase");
 // config goes here
 firebase.initializeApp(config)
 
+var baseLink = `baseURL` // should be somethin' like "https://anythingiwant-e50ff.firebaseio.com/" and yes you'll need the https:// part too
 
 // READY EVENT [START]
 aegisAutomation.on('ready', () => {
@@ -174,7 +175,7 @@ aegisAutomation.on('message', async message => {
           message.channel.send(errorEmbed)
         }else{
           var userID = await rbx.getIdFromUsername(`${userArray[i]}`)
-          var { body } = await snekfetch.get(`https://aegisautomation-9da8a.firebaseio.com/${userID}.json`);
+          var { body } = await snekfetch.get(`${baseLink}${userID}.json`);
           var currentXP;
 
           if (!body){
@@ -249,7 +250,7 @@ aegisAutomation.on('message', async message => {
                requiredNumber = 0;
               }
             var whateverRequired4NextRank = requiredNumber
-            var { body } = await snekfetch.get(`https://aegisautomation-9da8a.firebaseio.com/rankLock/${userID}.json`)
+            var { body } = await snekfetch.get(`${baseLink}rankLock/${userID}.json`)
             var doesUserHaveProfile;
             if (body){
               doesUserHaveProfile = 1
@@ -394,7 +395,7 @@ aegisAutomation.on('message', async message => {
           message.channel.send(errorEmbed).then(message => message.delete(5000))
         }else{
           var userID = await rbx.getIdFromUsername(`${userArray[i]}`)
-          var { body } = await snekfetch.get(`https://aegisautomation-9da8a.firebaseio.com/${userID}.json`);
+          var { body } = await snekfetch.get(`${baseLink}${userID}.json`);
           var currentXP;
           var pointsMaybe = Number(args[2]);
 
@@ -468,7 +469,7 @@ aegisAutomation.on('message', async message => {
               requiredNumber = 0;
             }
 
-            var { body } = await snekfetch.get(`https://aegisautomation-9da8a.firebaseio.com/rankLock/${userIDDD}.json`)
+            var { body } = await snekfetch.get(`${baseLink}rankLock/${userIDDD}.json`)
             var doesUserHaveProfile;
             if (body){
               doesUserHaveProfile = 1
@@ -529,20 +530,20 @@ aegisAutomation.on('message', async message => {
     var usernameE = `${body.Username}`
     var userID = await rbx.getIdFromUsername(`${args[1]}`)
     var rankLocked;
-    var { body } = await snekfetch.get(`https://aegisautomation-9da8a.firebaseio.com/rankLock/${userID}.json`)
+    var { body } = await snekfetch.get(`${baseLink}rankLock/${userID}.json`)
     if (body){
       rankLocked = "True"
     }else{
       rankLocked = "False"
     }
-    var { body } = await snekfetch.get(`https://aegisautomation-9da8a.firebaseio.com/warnings/${userID}.json`);
+    var { body } = await snekfetch.get(`${baseLink}warnings/${userID}.json`);
     var a = 0;
     if (!body){
       a = 0;
     }
     if (body){
       for (i = 0; i < 10000; i++){
-      var { body } = await snekfetch.get(`https://aegisautomation-9da8a.firebaseio.com/warnings/${userIDRBLLX}/${i}.json`);
+      var { body } = await snekfetch.get(`${baseLink}warnings/${userIDRBLLX}/${i}.json`);
       if (!body){
         a = i + 1
         if (a < 0){ // if 0 warnings
@@ -556,7 +557,7 @@ aegisAutomation.on('message', async message => {
     }
     var userIDDD = await rbx.getIdFromUsername(`${args[1]}`)
     var currentRank = await rbx.getRankNameInGroup(groupID, userIDDD) // RANK IN MAIN GROUP
-    var { body } = await snekfetch.get(`https://aegisautomation-9da8a.firebaseio.com/${userID}.json`);
+    var { body } = await snekfetch.get(`${baseLink}${userID}.json`);
     if (!body){
       var sorryEmbed = new Discord.RichEmbed()
         .setColor(0xf74e4e)
@@ -652,9 +653,9 @@ aegisAutomation.on('message', async message => {
     }
 
     if (a > 0){
-      var { body } = await snekfetch.get(`https://aegisautomation-9da8a.firebaseio.com/warnings/${userIDDD}.json`);
+      var { body } = await snekfetch.get(`${baseLink}warnings/${userIDDD}.json`);
       for (i = 0; i < 10000; i++){
-          var { body } = await snekfetch.get(`https://aegisautomation-9da8a.firebaseio.com/warnings/${userIDDD}/${i}.json`);
+          var { body } = await snekfetch.get(`${baseLink}warnings/${userIDDD}/${i}.json`);
           if (!body){
             a = i + 1
             if (a < 0){ // if 0 warnings
@@ -667,7 +668,7 @@ aegisAutomation.on('message', async message => {
         }
     }
     for (i = 0; i < a; i++){
-      var { body } = await snekfetch.get(`https://aegisautomation-9da8a.firebaseio.com/warnings/${userIDDD}/${i}.json`);
+      var { body } = await snekfetch.get(`${baseLink}warnings/${userIDDD}/${i}.json`);
       if (!body){
         break;
       }else{
@@ -742,7 +743,7 @@ aegisAutomation.on('message', async message => {
     if (!args[2]){
       return message.channel.send(`You need to provide me with some information about this warning!`).then(message => message.delete(5000));
     }
-    var { body } = await snekfetch.get(`https://aegisautomation-9da8a.firebaseio.com/warnings/${userIDRBLLX}.json`);
+    var { body } = await snekfetch.get(`${baseLink}warnings/${userIDRBLLX}.json`);
     //  var userIDLookin4 = Number(message.mentions.users.first().id).toString()
     if (!body){
       firebase.database().ref(`warnings/` + userIDRBLLX + `/0`).set({
@@ -754,7 +755,7 @@ aegisAutomation.on('message', async message => {
       var b = 0;
       while (b === 0){
         for (i = 0; i < 1000; i++){
-          var { body } = await snekfetch.get(`https://aegisautomation-9da8a.firebaseio.com/warnings/${userIDRBLLX}/${i}.json`);
+          var { body } = await snekfetch.get(`${baseLink}warnings/${userIDRBLLX}/${i}.json`);
           if (!body){
             a = i;
             i = 99999999
@@ -803,7 +804,7 @@ aegisAutomation.on('message', async message => {
       .setDescription(`Sorry, but ${rblxUserName} isn't even in the group!`)
       return message.reply(errorEmbed).then(message => message.delete(10000));
     }
-    var { body } = await snekfetch.get(`https://aegisautomation-9da8a.firebaseio.com/rankLock/${rblxUserID}.json`)
+    var { body } = await snekfetch.get(`${baseLink}rankLock/${rblxUserID}.json`)
     if (body){
       var oofEmbed = new Discord.RichEmbed()
         .setColor(`RANDOM`)

@@ -13,3 +13,10 @@
 <ul>
   <li>Streamable Tutorial</li>
 </ul>
+<hr>
+<h2>Aegis_Core_Bot Tutorial</h2>
+<ul>
+  <li>Part 1 - https://streamable.com/fy377</li>
+  <li>Part 2 - https://streamable.com/kzd9u</li>
+  <li>Part 3 - https://streamable.com/t12jy</li>
+</ul>

@@ -26,41 +26,6 @@ aegisAutomation.on('ready', () => {
 })
 // READY EVENT [END]
 
-aegisAutomation.on('guildMemberAdd', async (member) => {
-  var { body } = await snekfetch.get(`https://verify.eryn.io/api/user/${member.id}`)
-  if (!body){
-    return undefined;
-  }else{
-    var rankID = await rbx.getRankInGroup(3243022, body.robloxId)
-    if (rankID === 0){
-      var embed = new Discord.RichEmbed()
-        .setColor(0xf74e4e)
-        .setTitle(`Verification Error | Emitter`)
-        .setDescription(`Hey there [${body.robloxUsername}](https://www.roblox.com/users/${body.robloxId}/profile)!\n\nI could not go further through the verification process because you're not in the [group](https://www.roblox.com/groups/3243022/Aegis-Core#!/about).`)
-        .addField(`Different Account?`, `Wish to verify under a different account?  [Click here and reverify yourself with RoVer, an API that I extract ROBLOX-Discord information from.\n\nOnce you've completed that, simply chat **\`!remove\`** then **\`!verify\`** once more.](https://verify.eryn.io/)`)
-      return member.send(embed)
-    }else{
-      var embed = new Discord.RichEmbed()
-        .setColor(0x00ffa5)
-        .setTitle(`Verification Success | Emitter`)
-        .setDescription(`Hey there [${body.robloxUsername}](https://www.roblox.com/users/${body.robloxId}/profile)!\n\nI've successfully linked your Discord account with ${body.robloxUsername} and I'm glad you've decided to join our communication hub.`)
-        .addField(`Different Account?`, `Wish to verify under a different account?  [Click here and reverify yourself with RoVer, an API that I extract ROBLOX-Discord information from.\n\nOnce you've completed that, simply chat **\`!remove\`** then **\`!verify\`** once more.](https://verify.eryn.io/)`)
-      if (1 <= rankID && rankID <= 185){
-        await member.addRole(member.guild.roles.find(role => role.name === "Aegian"))
-      }else if (195 <= rankID && rankID <= 220){
-        await member.addRole(member.roles.find(role => role.name === "Officer"))
-      }else if (250 <= rankID){
-        await member.addRole(member.roles.find(role => role.name === "High Command"))
-      }else{
-        await member.addRole(member.guild.roles.find(role => role.name === "Aegian"))
-      }
-      await member.setNickname(`${body.robloxUsername}`)
-      await member.addRole(member.guild.roles.find(role => role.name === "Verified"))
-      return member.send(embed)
-    }
-  }
-})
-
 aegisAutomation.on('message', async message => {
 
 
